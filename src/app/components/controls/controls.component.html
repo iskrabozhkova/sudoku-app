@@ -1,0 +1,12 @@
+<div class="controls">
+    <select [(ngModel)]="selectedDifficulty">
+      <option *ngFor="let diff of difficulties" [value]="diff">{{ diff }}</option>
+    </select>
+    <button (click)="startGame()">Start</button>
+    <button (click)="validate()">Validate</button>
+    <button (click)="solve()">Solve</button>
+    <div *ngIf="validationMessage$ | async as msg" class="validation-msg">
+        {{ msg }}
+    </div>
+</div>
+  
