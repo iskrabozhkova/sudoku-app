@@ -1,12 +1,16 @@
-<div class="controls">
-    <select [(ngModel)]="selectedDifficulty">
-      <option *ngFor="let diff of difficulties" [value]="diff">{{ diff }}</option>
-    </select>
-    <button (click)="startGame()">Start</button>
-    <button (click)="validate()">Validate</button>
-    <button (click)="solve()">Solve</button>
-    <div *ngIf="validationMessage$ | async as msg" class="validation-msg">
-        {{ msg }}
+<div class="menu-container">
+    <div class="menu-card card p-4 shadow-sm">
+      <h4 class="menu-title text-center mb-4">Choose Difficulty</h4>
+  
+      <div class="mb-4">
+        <select [(ngModel)]="selectedDifficulty" class="form-select form-select-lg">
+          <option *ngFor="let diff of difficulties" [value]="diff">{{ diff | titlecase }}</option>
+        </select>
+      </div>
+  
+      <div class="d-grid">
+        <button class="btn btn-primary btn-lg" (click)="startGame()">Start</button>
+      </div>
     </div>
-</div>
+  </div>  
   

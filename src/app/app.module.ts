@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BoardComponent } from './components/board/board.component';
-import { CellComponent } from './components/cell/cell.component';
 import { ControlsComponent } from './components/controls/controls.component';
 import { HeaderComponent } from './components/header/header.component';
 import { StoreModule } from '@ngrx/store';
@@ -20,7 +19,6 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HomeComponent,
     BoardComponent,
-    CellComponent,
     ControlsComponent,
     HeaderComponent
   ],

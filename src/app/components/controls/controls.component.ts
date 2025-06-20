@@ -13,12 +13,14 @@ import { selectValidationMessage } from 'src/app/store/sudoku.selectors';
 export class ControlsComponent {
   difficulties = ['easy', 'medium', 'hard', 'random'];
   selectedDifficulty = 'easy';
-  validationMessage$ = this.store.select(selectValidationMessage);
+  // validationMessage$ = this.store.select(selectValidationMessage);
 
   constructor(private store: Store, private router: Router) {}
 
   startGame() {
+    // this.store.dispatch(loadBoard({ difficulty: this.selectedDifficulty }));
     this.store.dispatch(loadBoard({ difficulty: this.selectedDifficulty }));
+    this.router.navigate(['/board']);
   }
 
   solve() {
