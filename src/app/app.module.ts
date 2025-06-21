@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
-import { BoardComponent } from './components/board/board.component';
+import { BoardComponent } from './pages/board/board.component';
 import { ControlsComponent } from './components/controls/controls.component';
 import { HeaderComponent } from './components/header/header.component';
 import { StoreModule } from '@ngrx/store';
