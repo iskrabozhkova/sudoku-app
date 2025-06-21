@@ -13,6 +13,7 @@ import { sudokuReducer } from './store/sudoku.reducer';
 import { SudokuEffects } from './store/sudoku.effects';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ValidationMessageComponent } from './components/validation-message/validation-message.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     BoardComponent,
     ControlsComponent,
-    HeaderComponent
+    HeaderComponent,
+    ValidationMessageComponent
   ],
   imports: [
     BrowserModule,

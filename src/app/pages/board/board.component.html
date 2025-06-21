@@ -25,6 +25,7 @@
               <input
                 type="text"
                 class="form-control sudoku-cell"
+                pattern="[1-9]"  
                 [ngClass]="{
                   'original-cell': original[rowIndex][colIndex] !== 0,
                   'editable-cell': original[rowIndex][colIndex] === 0,
@@ -45,10 +46,11 @@
           <button class="btn btn-success" (click)="validate()">Validate</button>
           <button class="btn btn-primary" (click)="solve()">Solve</button>
         </div>
-
-        <div *ngIf="validationMessage$ | async as msg" class="alert alert-info text-center p-2">
-          {{ msg }}
-        </div>
+        <app-validation-message
+        *ngIf="combinedValidationMessage$ | async as message"
+        [message]="message"
+        [type]="combinedValidationType$ | async"
+      ></app-validation-message>
       </div>
     </div>
   </div>
