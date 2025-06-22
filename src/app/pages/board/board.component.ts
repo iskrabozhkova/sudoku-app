@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { selectBoard, selectOriginalBoard, selectValidationMessage } from 'src/app/store/sudoku.selectors';
 import { loadBoard, solveBoard, updateCell, validateBoard } from 'src/app/store/sudoku.actions';
 import { Store } from '@ngrx/store';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, combineLatest, map } from 'rxjs';
 
 @Component({
@@ -11,8 +11,15 @@ import { BehaviorSubject, combineLatest, map } from 'rxjs';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent {
+  difficulty: string = '';
+  
+  constructor(private store: Store, private router : Router, private route: ActivatedRoute) {}
 
-  constructor(private store: Store, private router : Router) {}
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.difficulty = params['difficulty'] || 'easy';
+    });
+  }
 
   goBack(): void {
     this.router.navigate(['/']);

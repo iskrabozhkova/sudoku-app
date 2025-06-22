@@ -21,7 +21,9 @@ export class HomeComponent {
     this.store.dispatch(loadBoard({ difficulty }));
 
     setTimeout(() => {
-      this.router.navigate(['/board']);
+      this.router.navigate(['/board'], {
+        queryParams: { difficulty }
+      });
       this.loading = false;
     }, 1000);
   }

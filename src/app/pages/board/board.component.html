@@ -1,22 +1,31 @@
-<div class="container mt-3">
-  <button class="btn btn-outline-secondary mb-3" (click)="goBack()">← Back</button>
-
-  <div class="row d-flex flex-column flex-md-row align-items-md-center">
-    <div class="col-md-4 d-flex justify-content-center mb-4 mb-md-0">
-      <div class="instructions-box p-4 rounded bg-light border text-md-start">
-        <h5 class="mb-3"><strong>Fill the board</strong></h5>
-        <p class="mb-2">Enter missing numbers and complete the puzzle.</p>
-
-        <h5 class="mb-3"><strong>Validate your logic</strong></h5>
-        <p class="mb-2">Click 'Validate' to check if your solution is correct.</p>
-
-        <h5 class="mb-3"><strong>Solve</strong></h5>
-        <p class="mb-0">Need help? Click on the 'Solve' button.</p>
+<div class="container">
+  <button class="btn btn-outline-secondary m-3" (click)="goBack()">← Back</button>
+  <div class="row g-5">
+    <div class="col-12 col-md-8">
+      <div class="bg-white border p-2 h-100 d-flex justify-content-center align-items-center">
+        <app-sudoku-board></app-sudoku-board>
       </div>
     </div>
-
-    <div class="col-md-8">
-      <app-sudoku-board></app-sudoku-board>
+    
+    <div class="col-12 col-md-4">
+      <div class="bg-white border rounded p-4 h-100">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <span class="text-uppercase text-muted small">Game Info</span>
+          <span class="badge bg-secondary text-white text-capitalize">{{ difficulty }}</span>
+        </div>
+        <div class="mb-4">
+          <h6 class="mb-1">Fill the board</h6>
+          <p class="small text-muted mb-0">Enter missing numbers to complete the puzzle.</p>
+        </div>
+        <div class="mb-4">
+          <h6 class="mb-1">Validate your logic</h6>
+          <p class="small text-muted mb-0">Click 'Validate' to check if your solution is correct.</p>
+        </div>
+        <div>
+          <h6 class="mb-1">Solve</h6>
+          <p class="small text-muted mb-0">Need help? Click 'Solve' to complete the puzzle automatically.</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
