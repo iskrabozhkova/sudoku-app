@@ -1,19 +1,22 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { loadBoard, solveBoard, validateBoard } from 'src/app/store/sudoku.actions';
-import { selectValidationMessage } from 'src/app/store/sudoku.selectors';
-
+import { Difficulty } from 'src/app/core/models/board.model';
+import {
+  loadBoard,
+  solveBoard,
+  validateBoard,
+} from 'src/app/store/sudoku.actions';
 
 @Component({
   selector: 'app-controls',
   templateUrl: './controls.component.html',
-  styleUrls: ['./controls.component.scss']
+  styleUrls: ['./controls.component.scss'],
 })
 export class ControlsComponent {
-  difficulties = ['easy', 'medium', 'hard', 'random'];
-  selectedDifficulty = 'easy';
-  loading : boolean = false;
+  difficulties: Difficulty[] = ['easy', 'medium', 'hard', 'random'];
+  selectedDifficulty: Difficulty = 'easy';
+  loading: boolean = false;
 
   constructor(private store: Store, private router: Router) {}
 
@@ -27,21 +30,24 @@ export class ControlsComponent {
     }, 1000);
   }
 
-
-  getButtonClass(diff: string): string {
-    switch(diff.toLowerCase()) {
-      case 'easy': return '#a0d8d8'; 
-      case 'medium': return '#5fbdbd';
-      case 'hard': return '#2a8c8c';  
-      default: return '#a0d8d8';
-  }
-}
-
   solve() {
     this.store.dispatch(solveBoard());
   }
 
   validate() {
     this.store.dispatch(validateBoard());
+  }
+
+  getButtonClass(diff: string): string {
+    switch (diff.toLowerCase()) {
+      case 'easy':
+        return '#a0d8d8';
+      case 'medium':
+        return '#5fbdbd';
+      case 'hard':
+        return '#2a8c8c';
+      default:
+        return '#a0d8d8';
+    }
   }
 }

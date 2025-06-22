@@ -60,4 +60,13 @@ export class BoardComponent {
     this.inputErrorMessage$.next(null);
     this.store.dispatch(validateBoard());
   }
+
+  getCellClasses(row: number, col: number, value: number, original: number[][]): string[] {
+    return [
+      original[row][col] !== 0 ? 'original-cell' : 'editable-cell',
+      (row + 1) % 3 === 0 && row !== 8 ? 'border-bottom-bold' : '',
+      (col + 1) % 3 === 0 && col !== 8 ? 'border-right-bold' : '',
+      value === this.highlightedNumber ? 'highlight-cell' : ''
+    ];
+  }
 }
