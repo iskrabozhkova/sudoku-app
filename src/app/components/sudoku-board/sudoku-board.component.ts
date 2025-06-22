@@ -44,8 +44,6 @@ export class SudokuBoardComponent {
       event.target.value = '';
     }
   }
-  
-  
 
   goBack(): void {
     this.router.navigate(['/']);

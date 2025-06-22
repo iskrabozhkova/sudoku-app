@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as SudokuActions from './sudoku.actions';
-import { SudokuService } from '../core/services/sudoku.service';
+import { SudokuService } from '../shared/services/sudoku.service';
 import { map, mergeMap, withLatestFrom } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { SudokuState } from './sudoku.reducer';

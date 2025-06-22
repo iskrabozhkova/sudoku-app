@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Board } from '../core/models/board.model';
+import { Board } from '../shared/models/board.model';
 
 export const loadBoard = createAction('[Sudoku] Load Board', props<{ difficulty: string }>());
 export const loadBoardSuccess = createAction('[Sudoku] Load Board Success', props<{ board: Board }>());

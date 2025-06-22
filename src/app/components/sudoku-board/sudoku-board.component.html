@@ -13,7 +13,7 @@
 
     <div class="d-flex justify-content-center gap-3 mb-3">
       <button class="btn btn-success" (click)="validate()">Validate</button>
-      <button class="btn btn-primary" (click)="solve()">Solve</button>
+      <button class="btn btn-secondary" (click)="solve()">Solve</button>
     </div>
 
     <app-validation-message *ngIf="combinedValidationMessage$ | async as message" [message]="message"

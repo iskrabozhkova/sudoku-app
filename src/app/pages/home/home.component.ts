@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Difficulty } from 'src/app/core/models/board.model';
+import { Difficulty } from 'src/app/shared/models/board.model';
 import { loadBoard, solveBoard, validateBoard } from 'src/app/store/sudoku.actions';
 
 @Component({

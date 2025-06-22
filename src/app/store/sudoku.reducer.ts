@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import * as SudokuActions from './sudoku.actions';
-import { Board } from '../core/models/board.model';
+import { Board } from '../shared/models/board.model';
 
 export interface SudokuState {
   board: Board;
