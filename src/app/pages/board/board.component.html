@@ -1,41 +1,22 @@
-<ng-container *ngIf="board$ | async as board">
-  <div class="container mt-3">
-    <button class="btn btn-outline-secondary mb-3" (click)="goBack()">← Back</button>
+<div class="container mt-3">
+  <button class="btn btn-outline-secondary mb-3" (click)="goBack()">← Back</button>
 
-    <div class="row d-flex flex-column flex-md-row align-items-md-center" style="min-height: 80vh;">
-      <div class="col-md-4 d-flex justify-content-center mb-4 mb-md-0">
-        <div class="instructions-box p-4 rounded bg-light border text-md-start">
-          <h5 class="mb-3"><strong>Fill the board</strong></h5>
-          <p class="mb-2">Enter missing numbers and complete the puzzle.</p>
+  <div class="row d-flex flex-column flex-md-row align-items-md-center" style="min-height: 80vh;">
+    <div class="col-md-4 d-flex justify-content-center mb-4 mb-md-0">
+      <div class="instructions-box p-4 rounded bg-light border text-md-start">
+        <h5 class="mb-3"><strong>Fill the board</strong></h5>
+        <p class="mb-2">Enter missing numbers and complete the puzzle.</p>
 
-          <h5 class="mb-3"><strong>Validate your logic</strong></h5>
-          <p class="mb-2">Click 'Validate' to check if your solution is correct.</p>
+        <h5 class="mb-3"><strong>Validate your logic</strong></h5>
+        <p class="mb-2">Click 'Validate' to check if your solution is correct.</p>
 
-          <h5 class="mb-3"><strong>Solve</strong></h5>
-          <p class="mb-0">Need help? Click on the 'Solve' button.</p>
-        </div>
-      </div>
-      <div class="col-md-8" *ngIf="originalBoard$ | async as original">
-        <div class="d-grid sudoku-board mb-4">
-          <ng-container *ngFor="let row of board; let rowIndex = index">
-            <ng-container *ngFor="let cell of row; let colIndex = index">
-              <input type="text" class="form-control sudoku-cell" pattern="[1-9]" maxlength="1"
-                [ngClass]="getCellClasses(rowIndex, colIndex, cell, original)" [value]="cell || ''"
-                [readonly]="original[rowIndex][colIndex] !== 0"
-                (input)="onCellChange(rowIndex, colIndex, $event, original)" />
-            </ng-container>
-          </ng-container>
-        </div>
-
-        <div class="d-flex justify-content-center gap-3 mb-3">
-          <button class="btn btn-success" (click)="validate()">Validate</button>
-          <button class="btn btn-primary" (click)="solve()">Solve</button>
-        </div>
-
-        <app-validation-message *ngIf="combinedValidationMessage$ | async as message" [message]="message"
-          [type]="combinedValidationType$ | async">
-        </app-validation-message>
+        <h5 class="mb-3"><strong>Solve</strong></h5>
+        <p class="mb-0">Need help? Click on the 'Solve' button.</p>
       </div>
     </div>
+
+    <div class="col-md-8">
+      <app-sudoku-board></app-sudoku-board>
+    </div>
   </div>
-</ng-container>
+</div>

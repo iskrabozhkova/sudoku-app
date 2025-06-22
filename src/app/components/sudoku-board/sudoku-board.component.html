@@ -1,0 +1,23 @@
+<ng-container *ngIf="board$ | async as board">
+<div class="col-md-8" *ngIf="originalBoard$ | async as original">
+    <div class="d-grid sudoku-board mb-4">
+      <ng-container *ngFor="let row of board; let rowIndex = index">
+        <ng-container *ngFor="let cell of row; let colIndex = index">
+          <input type="text" class="form-control sudoku-cell" pattern="[1-9]" maxlength="1"
+            [ngClass]="getCellClasses(rowIndex, colIndex, cell, original)" [value]="cell || ''"
+            [readonly]="original[rowIndex][colIndex] !== 0"
+            (input)="onCellChange(rowIndex, colIndex, $event, original)" />
+        </ng-container>
+      </ng-container>
+    </div>
+
+    <div class="d-flex justify-content-center gap-3 mb-3">
+      <button class="btn btn-success" (click)="validate()">Validate</button>
+      <button class="btn btn-primary" (click)="solve()">Solve</button>
+    </div>
+
+    <app-validation-message *ngIf="combinedValidationMessage$ | async as message" [message]="message"
+      [type]="combinedValidationType$ | async">
+    </app-validation-message>
+  </div>
+</ng-container>

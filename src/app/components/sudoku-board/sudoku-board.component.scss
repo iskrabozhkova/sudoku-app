@@ -1,0 +1,44 @@
+.sudoku-board {
+    grid-template-columns: repeat(9, 1fr);
+    gap: 0;
+    width: 100%;
+    max-width: 450px;
+    margin: auto;
+  }
+
+  h4 {
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  
+  .sudoku-cell {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .original-cell {
+    background-color: #e9ecef; 
+  }
+  
+  .editable-cell {
+    background-color: #fff;
+  }
+  
+  .border-bottom-bold {
+    border-bottom: 3px solid #000 !important;
+  }
+  
+  .border-right-bold {
+    border-right: 3px solid #000 !important;
+  }
+
+  .highlight-cell {
+    background-color: #f9f871;
+  }
+  
