@@ -17,7 +17,7 @@ export class BoardComponent {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      this.difficulty = params['difficulty'] || 'easy';
+      this.difficulty = params['difficulty'];
     });
   }
 

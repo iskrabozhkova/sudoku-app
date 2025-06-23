@@ -2,17 +2,19 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as SudokuActions from './sudoku.actions';
 import { SudokuService } from '../shared/services/sudoku.service';
-import { map, mergeMap, withLatestFrom } from 'rxjs/operators';
+import { map, mergeMap, tap, withLatestFrom } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { SudokuState } from './sudoku.reducer';
 import { of, catchError } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class SudokuEffects {
   constructor(
     private actions$: Actions,
     private sudokuService: SudokuService,
-    private store: Store<{ sudoku: SudokuState }>
+    private store: Store<{ sudoku: SudokuState }>,
+    private router : Router
   ) {}
 
   loadBoard$ = createEffect(() =>
@@ -28,11 +30,26 @@ export class SudokuEffects {
     )
   );
 
+  navigateToBoard$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(SudokuActions.loadBoardSuccess),
+        withLatestFrom(this.store.select((state) => state.sudoku.difficulty)),
+        tap(([action, difficulty]) => {
+          this.router.navigate(['/board'], {
+            queryParams: { difficulty }
+          });
+        })
+      ),
+    { dispatch: false }
+  );
+  
+
   solveBoard$ = createEffect(() =>
     this.actions$.pipe(
       ofType(SudokuActions.solveBoard),
       withLatestFrom(this.store.select((state) => state.sudoku.board)),
-      mergeMap(([_, board]) =>
+      mergeMap(([action, board]) =>
         this.sudokuService.solveBoard(board).pipe(
           map((res) => {
             if (res.status === 'unsolvable') {

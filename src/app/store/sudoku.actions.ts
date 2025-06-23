@@ -7,6 +7,7 @@ export const updateCell = createAction('[Sudoku] Update Cell', props<{ row: numb
 export const validateBoard = createAction('[Sudoku] Validate');
 export const solveBoard = createAction('[Sudoku] Solve');
 export const setSolution = createAction('[Sudoku] Set Solution', props<{ board: Board }>());
+export const resetBoard = createAction('[Sudoku] Reset Board');
 
 export const validationSuccess = createAction(
     '[Sudoku] Validation Success',

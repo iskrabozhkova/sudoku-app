@@ -10,7 +10,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { sudokuReducer } from './store/sudoku.reducer';
 import { SudokuEffects } from './store/sudoku.effects';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ValidationMessageComponent } from './components/validation-message/validation-message.component';
 import { SudokuBoardComponent } from './components/sudoku-board/sudoku-board.component';

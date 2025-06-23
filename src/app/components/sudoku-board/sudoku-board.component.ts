@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { BehaviorSubject, combineLatest, map } from 'rxjs';
-import { solveBoard, updateCell, validateBoard } from 'src/app/store/sudoku.actions';
+import { resetBoard, solveBoard, updateCell, validateBoard } from 'src/app/store/sudoku.actions';
 import { selectBoard, selectOriginalBoard, selectValidationMessage } from 'src/app/store/sudoku.selectors';
 
 @Component({
@@ -57,6 +57,12 @@ export class SudokuBoardComponent {
   validate() {
     this.inputErrorMessage$.next(null);
     this.store.dispatch(validateBoard());
+  }
+
+  reset() {
+    this.inputErrorMessage$.next(null);
+    this.store.dispatch(resetBoard());
+    this.highlightedNumber = null;
   }
 
   getCellClasses(row: number, col: number, value: number, original: number[][]): string[] {
