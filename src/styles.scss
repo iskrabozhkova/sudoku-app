@@ -1,4 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
 body {
     background-color: #f8f9fa;
-  }
+}
+:root {
+  --sudoku-primary: #1f5f5f; 
+  --sudoku-primary-light: #3a7d7d;
+  --sudoku-primary-dark: #154545;
+  
+  --sudoku-secondary: #95a5a6;
+  --sudoku-dark: #2c3e50;
+  --sudoku-light: #f8f9fa;
+  --sudoku-border: #e0e0e0;
+}
+
+.text-sudoku { color: var(--sudoku-primary); }
+.bg-sudoku { background-color: var(--sudoku-primary); }
+.border-sudoku { border-color: var(--sudoku-primary); }
+
+.btn-sudoku {
+  background-color: var(--sudoku-primary);
+  color: white;
+  border: 1px solid var(--sudoku-primary-dark);
+}
+
+.btn-outline-sudoku {
+  color: var(--sudoku-primary);
+  border: 1px solid var(--sudoku-primary);
+  background: transparent;
+}
+
+.btn-outline-sudoku:hover {
+  background-color: var(--sudoku-primary);
+  color: white;
+}
+
+.badge-sudoku {
+  background-color: var(--sudoku-primary);
+  color: white;
+}
+
+.timer-box {
+  background-color: var(--sudoku-light);
+  border: 1px solid var(--sudoku-border);
+}
+
+.divider {
+  border-bottom: 1px solid var(--sudoku-border);
+}

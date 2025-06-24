@@ -1,32 +1,42 @@
 <div class="container">
-  <button class="btn btn-outline-secondary m-3" (click)="goBack()">← Back</button>
-  <div class="row g-5">
+  <button class="btn btn-outline-sudoku px-3 m-3" (click)="goBack()">
+    <i class="bi bi-chevron-left"></i> Back
+  </button>
+
+  <div class="row g-4">
     <div class="col-12 col-md-8">
-      <div class="bg-white border p-2 h-100 d-flex justify-content-center align-items-center">
+      <div class="bg-white border border-sudoku p-2 d-flex justify-content-center align-items-center">
         <app-sudoku-board></app-sudoku-board>
       </div>
     </div>
     
     <div class="col-12 col-md-4">
-      <div class="bg-white border rounded p-4 h-100">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-          <span class="text-uppercase text-muted small">Game Info</span>
-          <span class="badge bg-secondary text-white text-capitalize">{{ difficulty }}</span>
+      <div class="bg-white border border-sudoku p-4 h-100">
+        <div class="d-flex justify-content-between align-items-center mb-4 pb-2 divider">
+          <h5 class="m-0 text-sudoku">Game Guide</h5>
+          <span class="badge badge-sudoku px-3 py-2">{{ difficulty }}</span>
         </div>
-        <div class="mb-4">
-          <app-timer></app-timer>
+
+        <div class="mb-4 p-3 text-center timer-box">
+          <div class="small mb-1 text-muted">Time Elapsed</div>
+          <app-timer class="fs-3 fw-bold text-dark"></app-timer>
         </div>
-        <div class="mb-4">
-          <h6 class="mb-1">Fill the board</h6>
-          <p class="small text-muted mb-0">Enter missing numbers to complete the puzzle.</p>
-        </div>
-        <div class="mb-4">
-          <h6 class="mb-1">Validate your logic</h6>
-          <p class="small text-muted mb-0">Click 'Validate' to check if your solution is correct.</p>
-        </div>
-        <div>
-          <h6 class="mb-1">Solve</h6>
-          <p class="small text-muted mb-0">Need help? Click 'Solve' to complete the puzzle automatically.</p>
+
+        <div class="game-instructions">
+          <div class="mb-4">
+            <h6 class="mb-2 text-sudoku">Fill the Board</h6>
+            <p class="small mb-0 text-muted">Enter numbers 1-9 in empty cells following Sudoku rules.</p>
+          </div>
+          
+          <div class="mb-4">
+            <h6 class="mb-2 text-sudoku">Validate Solution</h6>
+            <p class="small mb-0 text-muted">Check your progress with the Validate button.</p>
+          </div>
+          
+          <div>
+            <h6 class="mb-2 text-sudoku">Get Help</h6>
+            <p class="small mb-0 text-muted">Use Solve to automatically complete the puzzle.</p>
+          </div>
         </div>
       </div>
     </div>

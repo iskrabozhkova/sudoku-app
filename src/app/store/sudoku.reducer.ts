@@ -54,4 +54,8 @@ export const sudokuReducer = createReducer(
       board: resetBoard
     };
   }),
+  on(SudokuActions.clearValidationMessage, (state) => ({
+    ...state,
+    validationMessage: null
+  })),
 );

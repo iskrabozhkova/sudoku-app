@@ -14,7 +14,8 @@ export const validationSuccess = createAction(
     props<{ message: string }>()
   );
   
-  export const validationFailed = createAction(
+export const validationFailed = createAction(
     '[Sudoku] Validation Failed',
     props<{ message: string }>()
   );
+export const clearValidationMessage = createAction('[Sudoku] Clear Validation Message');
