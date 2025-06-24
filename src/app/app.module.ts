@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ValidationMessageComponent } from './components/validation-message/validation-message.component';
 import { SudokuBoardComponent } from './components/sudoku-board/sudoku-board.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { TimerComponent } from './components/timer/timer.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     HeaderComponent,
     ValidationMessageComponent,
     SudokuBoardComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
