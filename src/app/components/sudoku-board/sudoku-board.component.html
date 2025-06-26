@@ -3,10 +3,17 @@
     <div class="d-grid sudoku-board mb-4">
       <ng-container *ngFor="let row of board; let rowIndex = index">
         <ng-container *ngFor="let cell of row; let colIndex = index">
-          <input type="text" class="form-control sudoku-cell" pattern="[1-9]" maxlength="1"
-            [ngClass]="getCellClasses(rowIndex, colIndex, cell, original)" [value]="cell || ''"
-            [readonly]="original[rowIndex][colIndex] !== 0"
-            (input)="onCellChange(rowIndex, colIndex, $event, original)" />
+          <input
+          type="text"
+          class="form-control sudoku-cell"
+          pattern="[1-9]"
+          maxlength="1"
+          [ngClass]="getCellClasses(rowIndex, colIndex, cell, original)"
+          [value]="cell || ''"
+          [readonly]="original[rowIndex][colIndex] !== 0"
+          (click)="onCellClick(rowIndex, colIndex, original)"
+          (input)="onCellChange(rowIndex, colIndex, $event, original)"
+        />        
         </ng-container>
       </ng-container>
     </div>

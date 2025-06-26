@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as SudokuActions from './sudoku.actions';
 import { SudokuService } from '../shared/services/sudoku.service';
-import { map, mergeMap, tap, withLatestFrom } from 'rxjs/operators';
+import { map, mergeMap, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { SudokuState } from './sudoku.reducer';
 import { of, catchError } from 'rxjs';
@@ -20,15 +20,14 @@ export class SudokuEffects {
   loadBoard$ = createEffect(() =>
     this.actions$.pipe(
       ofType(SudokuActions.loadBoard),
-      mergeMap(({ difficulty }) =>
-        this.sudokuService
-          .getBoard(difficulty as any)
-          .pipe(
-            map((res) => SudokuActions.loadBoardSuccess({ board: res.board }))
-          )
+      switchMap(({ difficulty }) =>
+        this.sudokuService.getBoard(difficulty as any).pipe(
+          map((res) => SudokuActions.loadBoardSuccess({ board: res.board }))
+        )
       )
     )
   );
+  
 
   navigateToBoard$ = createEffect(
     () =>

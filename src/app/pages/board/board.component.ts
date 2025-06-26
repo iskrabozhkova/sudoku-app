@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { selectBoard, selectOriginalBoard, selectValidationMessage } from 'src/app/store/sudoku.selectors';
 import { loadBoard, solveBoard, updateCell, validateBoard } from 'src/app/store/sudoku.actions';
 import { Store } from '@ngrx/store';
@@ -10,7 +10,7 @@ import { BehaviorSubject, combineLatest, map } from 'rxjs';
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss']
 })
-export class BoardComponent {
+export class BoardComponent implements OnInit {
   difficulty: string = '';
   
   constructor(private store: Store, private router : Router, private route: ActivatedRoute) {}

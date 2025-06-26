@@ -1,27 +1,31 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { BoardComponent } from './board.component';
 import { Store } from '@ngrx/store';
-import { HeaderComponent } from 'src/app/components/header/header.component';
-import { SudokuBoardComponent } from '../../components/sudoku-board/sudoku-board.component';
+import { Router } from '@angular/router';
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
+import { of } from 'rxjs';
+import { BoardComponent } from './board.component';
 
-describe('BoardComponent', () => {
+describe('HomeComponent', () => {
   let component: BoardComponent;
   let fixture: ComponentFixture<BoardComponent>;
+  let storeMock: any;
+  let routerMock: any;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [BoardComponent, HeaderComponent, SudokuBoardComponent],
+  beforeEach(async () => {
+    storeMock = jasmine.createSpyObj('Store', ['dispatch', 'select']);
+    storeMock.select.and.returnValue(of(false));
+    
+    routerMock = jasmine.createSpyObj('Router', ['navigate']);
+
+    await TestBed.configureTestingModule({
+      declarations: [BoardComponent],
       providers: [
-        {
-          provide: Store,
-          useValue: {
-            select: () => {},   
-            dispatch: () => {}, 
-          },
-        },
-      ],
-    });
+        { provide: Store, useValue: storeMock },
+        { provide: Router, useValue: routerMock }
+      ]
+    }).compileComponents();
+
     fixture = TestBed.createComponent(BoardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

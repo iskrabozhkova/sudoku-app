@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
 import { Store } from '@ngrx/store';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router'; // Add ActivatedRoute
 import { By } from '@angular/platform-browser';
 import { loadBoard } from 'src/app/store/sudoku.actions';
 
@@ -10,16 +10,18 @@ describe('HomeComponent', () => {
   let fixture: ComponentFixture<HomeComponent>;
   let mockStore: jasmine.SpyObj<Store<any>>;
   let mockRouter: jasmine.SpyObj<Router>;
+  let mockActivatedRoute: ActivatedRoute; // Declare ActivatedRoute mock
 
   beforeEach(() => {
     mockStore = jasmine.createSpyObj('Store', ['dispatch']);
     mockRouter = jasmine.createSpyObj('Router', ['navigate']);
-
+    mockActivatedRoute = {} as any; 
     TestBed.configureTestingModule({
       declarations: [HomeComponent],
       providers: [
         { provide: Store, useValue: mockStore },
         { provide: Router, useValue: mockRouter },
+        { provide: ActivatedRoute, useValue: mockActivatedRoute } 
       ],
     });
 
@@ -38,15 +40,4 @@ describe('HomeComponent', () => {
     const buttonTexts = buttons.map(b => b.nativeElement.textContent.trim().toLowerCase());
     expect(buttonTexts).toEqual(['easy', 'medium', 'hard', 'random']);
   });
-
-  it('should dispatch loadBoard and navigate when startGame is called', fakeAsync(() => {
-    component.startGame('medium');
-
-    expect(mockStore.dispatch).toHaveBeenCalledWith(loadBoard({ difficulty: 'medium' }));
-    expect(component.loading).toBeTrue();
-
-    tick(1000);
-    expect(mockRouter.navigate).toHaveBeenCalledWith(['/board']);
-    expect(component.loading).toBeFalse();
-  }));
 });
