@@ -27,15 +27,24 @@ Board Page:
 ## Setup Instructions
 
 1. **Clone the repository**
+   
     git clone https://github.com/iskrabozhkova/sudoku-angular-app.git
+
     cd sudoku-angular-app
+
 2. Install dependencies
+
     npm install
+
 3. Run the app
-  ng serve
-  The app will be available at http://localhost:4200.
-4. Running tests
-   ng test
+   
+    ng serve
+   
+    The app will be available at http://localhost:4200.
+  
+5. Running tests
+   
+    ng test
 
 
 
