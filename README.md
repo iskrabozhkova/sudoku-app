@@ -18,9 +18,10 @@ A fun and interactive Sudoku game built using Angular and powered by the [Sugoku
 ---
 
 ## Preview
-
+Home Page:
 ![image](https://github.com/user-attachments/assets/74b67884-c0c8-4463-a299-f8d26817dd2f)
-![image](https://github.com/user-attachments/assets/1980acf5-bb1b-4d3c-914d-d4bad511715e)
+Board Page:
+![image](https://github.com/user-attachments/assets/7292e8a4-36e9-429b-a140-ec7d661f0896)
 
 --- 
 ## Setup Instructions
