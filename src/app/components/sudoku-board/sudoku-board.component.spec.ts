@@ -10,7 +10,6 @@ describe('SudokuBoardComponent', () => {
   let component: SudokuBoardComponent;
   let fixture: ComponentFixture<SudokuBoardComponent>;
 
-  // Mock 9x9 empty board
   const mockBoard = Array.from({ length: 9 }, () => Array(9).fill(0));
   const mockValidationMessage = null;
 

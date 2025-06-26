@@ -16,6 +16,7 @@ import { ValidationMessageComponent } from './components/validation-message/vali
 import { SudokuBoardComponent } from './components/sudoku-board/sudoku-board.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TimerComponent } from './components/timer/timer.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { TimerComponent } from './components/timer/timer.component';
     FormsModule,
     HttpClientModule,
     StoreModule.forRoot({ sudoku: sudokuReducer }),
-    EffectsModule.forRoot([SudokuEffects])
+    EffectsModule.forRoot([SudokuEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent]
